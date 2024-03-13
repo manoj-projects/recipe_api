@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      args:
+        - DEV=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=attendance-2.cluster-cvxfty5zotmt.ap-south-1.rds.amazonaws.com
+      - DB_NAME=tnschools_working
+      - DB_USER=staging
+      - DB_PASS=p7e9e72CRngtuWTF
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    volumes:
+      - dev-db-data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=tnschools_working
+      - MYSQL_USER=staging
+      - MYSQL_PASSWORD=p7e9e72CRngtuWTF
+      - MYSQL_ROOT_PASSWORD=rootpassword
+
+volumes:
+  dev-db-data:
