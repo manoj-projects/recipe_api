@@ -89,6 +89,9 @@ DATABASES = {
         'PASSWORD':'p7e9e72CRngtuWTF',
         'HOST': 'attendance-2.cluster-cvxfty5zotmt.ap-south-1.rds.amazonaws.com',  
         'PORT': '', 
+          'OPTIONS': {
+            'init_command': 'SET sql_mode = "STRICT_TRANS_TABLES"',
+        },
     }
 }
 
