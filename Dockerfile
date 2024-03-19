@@ -27,7 +27,8 @@ RUN /py/bin/pip install --upgrade pip && \
     apk add --update --no-cache --virtual .tmp-build-deps \
         build-base musl-dev && \
     /py/bin/pip install -r /tmp/requirements.txt && \
-    /py/bin/pip install -r /tmp/requirements.dev.txt && \
+    /py/bin/pip install --upgrade djangorestframework-jwt pyjwt && \
+    /py/bin/pip install -r /tmp/requirements.dev.txt && \ 
     rm -rf /tmp && \
     apk del .tmp-build-deps && \
     adduser \
