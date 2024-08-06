@@ -41,13 +41,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_jwt',
     'api',
+    'tnemis',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -88,14 +88,25 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'tnschools_working',
-        'USER':'staging',
-        'PASSWORD':'p7e9e72CRngtuWTF',
-        'HOST': 'attendance-2.cluster-cvxfty5zotmt.ap-south-1.rds.amazonaws.com',  
-        'PORT': '', 
+        'USER':'emislogin1',
+        'PASSWORD':'uh+k93XD:xP)%da?',
+        'HOST': 'tnschools-cluster.cluster-ro-cvxfty5zotmt.ap-south-1.rds.amazonaws.com',  
+        'PORT': '3306', 
           'OPTIONS': {
             'init_command': 'SET sql_mode = "STRICT_TRANS_TABLES"',
         },
-    }
+    },
+    'db_read': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'tnschools_working',
+        'USER':'emislogin1',
+        'PASSWORD':'uh+k93XD:xP)%da?',
+        'HOST': 'tnschools-cluster.cluster-ro-cvxfty5zotmt.ap-south-1.rds.amazonaws.com',  
+        'PORT': '3306', 
+          'OPTIONS': {
+            'init_command': 'SET sql_mode = "STRICT_TRANS_TABLES"',
+        },
+    },
 }
 
 
@@ -150,16 +161,16 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
-JWT_AUTH = {
-    'JWT_SECRET_KEY': 'ingDLMRuGe9UKHRNjs7cYckS2yul4lc3',  # Change this to a secure secret key
-    'JWT_ALGORITHM': 'HS256',
-}
+JWT_SECRET_KEY ='ingDLMRuGe9UKHRNjs7cYckS2yul4lc3' 
+auth_key ='EMIS_web@2024_api'
+
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOGS_DIR = os.path.join(BASE_DIR, 'logs')
@@ -187,3 +198,26 @@ LOGGING = {
         },
     },
 }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://clustercfg.tnschools-rds.onqhbd.aps1.cache.amazonaws.com:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'PASSWORD': 'Bv1qn93x8DxpCz3w',
+            'SOCKET_CONNECT_TIMEOUT': 10,  # in seconds
+            'SOCKET_TIMEOUT': 10,  # in seconds
+            'SOCKET_KEEPALIVE': True,
+            'SOCKET_KEEPALIVE_OPTIONS': {
+                'TCP_KEEPIDLE': 60,
+                'TCP_KEEPINTVL': 10,
+                'TCP_KEEPCNT': 3,
+            },
+        }
+    }
+}
+
+
+
+#super user tnemis emis@123

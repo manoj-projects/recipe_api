@@ -1,4 +1,4 @@
-Internal Server Error: /api/api/token/
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -6,7 +6,7 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
     return self.dispatch(request, *args, **kwargs)
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
     response = self.handle_exception(exc)
@@ -16,29 +16,13 @@ Traceback (most recent call last):
     raise exc
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/app/api/views.py", line 19, in post
-    "access_token": str(refresh.access_token),
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 81, in __str__
-    return self.get_token_backend().encode(self.payload)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 173, in get_token_backend
-    self._token_backend = import_string(
-  File "/py/lib/python3.9/site-packages/django/utils/module_loading.py", line 17, in import_string
-    module = import_module(module_path)
-  File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/state.py", line 1, in <module>
-    from .backends import TokenBackend
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/backends.py", line 3, in <module>
-    from jwt import InvalidAlgorithmError, InvalidTokenError, PyJWKClient, algorithms
-ImportError: cannot import name 'PyJWKClient' from 'jwt' (/py/lib/python3.9/site-packages/jwt/__init__.py)
-"POST /api/api/token/ HTTP/1.1" 500 140529
-Internal Server Error: /api/api/token/
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict.get_districts()
+TypeError: get_districts() missing 1 required positional argument: 'cls'
+"GET /api/v1/alldistrict HTTP/1.1" 500 90141
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -46,7 +30,7 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
     return self.dispatch(request, *args, **kwargs)
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
     response = self.handle_exception(exc)
@@ -56,29 +40,13 @@ Traceback (most recent call last):
     raise exc
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/app/api/views.py", line 19, in post
-    "access_token": str(refresh.access_token),
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 81, in __str__
-    return self.get_token_backend().encode(self.payload)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 173, in get_token_backend
-    self._token_backend = import_string(
-  File "/py/lib/python3.9/site-packages/django/utils/module_loading.py", line 17, in import_string
-    module = import_module(module_path)
-  File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/state.py", line 1, in <module>
-    from .backends import TokenBackend
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/backends.py", line 3, in <module>
-    from jwt import InvalidAlgorithmError, InvalidTokenError, PyJWKClient, algorithms
-ImportError: cannot import name 'PyJWKClient' from 'jwt' (/py/lib/python3.9/site-packages/jwt/__init__.py)
-"POST /api/api/token/ HTTP/1.1" 500 140807
-Internal Server Error: /api/api/token/
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict.get_districts()
+TypeError: get_districts() missing 1 required positional argument: 'cls'
+"GET /api/v1/alldistrict HTTP/1.1" 500 90141
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -86,7 +54,7 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
     return self.dispatch(request, *args, **kwargs)
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
     response = self.handle_exception(exc)
@@ -96,149 +64,13 @@ Traceback (most recent call last):
     raise exc
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/app/api/views.py", line 23, in post
-    "access_token": str(refresh.access_token),
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 81, in __str__
-    return self.get_token_backend().encode(self.payload)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 173, in get_token_backend
-    self._token_backend = import_string(
-  File "/py/lib/python3.9/site-packages/django/utils/module_loading.py", line 17, in import_string
-    module = import_module(module_path)
-  File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/state.py", line 1, in <module>
-    from .backends import TokenBackend
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/backends.py", line 3, in <module>
-    from jwt import InvalidAlgorithmError, InvalidTokenError, PyJWKClient, algorithms
-ImportError: cannot import name 'PyJWKClient' from 'jwt' (/py/lib/python3.9/site-packages/jwt/__init__.py)
-"POST /api/api/token/ HTTP/1.1" 500 140705
-Internal Server Error: /api/login
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/login HTTP/1.1" 500 62653
-Internal Server Error: /api/login
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/login HTTP/1.1" 500 62655
-Internal Server Error: /api/login
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/login HTTP/1.1" 500 62655
-Internal Server Error: /api/login
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/login HTTP/1.1" 500 62655
-Internal Server Error: /api/login
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/login HTTP/1.1" 500 62655
-Internal Server Error: /api/login
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/login HTTP/1.1" 500 62655
-Internal Server Error: /api/login
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/login HTTP/1.1" 500 62655
-Internal Server Error: /api/login
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/login HTTP/1.1" 500 62655
-Internal Server Error: /api/login
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/login HTTP/1.1" 500 62655
-Internal Server Error: /api/hello
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/utils/deprecation.py", line 116, in __call__
-    response = self.process_request(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 54, in process_request
-    path = self.get_full_path_with_slash(request)
-  File "/py/lib/python3.9/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
-    raise RuntimeError(
-RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/hello/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
-"POST /api/hello HTTP/1.1" 500 62655
-Internal Server Error: /hello/
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict.get_districts()
+TypeError: get_districts() missing 1 required positional argument: 'self'
+"GET /api/v1/alldistrict HTTP/1.1" 500 90147
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -246,11 +78,23 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 17, in login
-    login_details = MobileModel.objects.custom_query(emis_username)
-AttributeError: type object 'MobileModel' has no attribute 'objects'
-"POST /hello/ HTTP/1.1" 500 61817
-Internal Server Error: /hello/
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict.get_districts()
+TypeError: get_districts() missing 1 required positional argument: 'self'
+"GET /api/v1/alldistrict HTTP/1.1" 500 90147
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -258,11 +102,23 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 17, in login
-    login_details = MobileModel.objects.custom_query(emis_username)
-AttributeError: type object 'MobileModel' has no attribute 'objects'
-"POST /hello/ HTTP/1.1" 500 61817
-Internal Server Error: /hello/
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict.get_districts()
+TypeError: get_districts() missing 1 required positional argument: 'self'
+"GET /api/v1/alldistrict HTTP/1.1" 500 90147
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -270,11 +126,23 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 17, in login
-    login_details = MobileModel.objects.custom_query(emis_username)
-AttributeError: type object 'MobileModel' has no attribute 'objects'
-"POST /hello/ HTTP/1.1" 500 61817
-Internal Server Error: /hello/
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict.get_districts()
+TypeError: get_districts() missing 1 required positional argument: 'self'
+"GET /api/v1/alldistrict HTTP/1.1" 500 90147
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -282,11 +150,23 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 17, in login
-    login_details = MobileModel.objects.custom_query(emis_username)
-AttributeError: type object 'MobileModel' has no attribute 'objects'
-"POST /hello/ HTTP/1.1" 500 61817
-Internal Server Error: /hello/
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict.get_districts()
+TypeError: get_districts() missing 1 required positional argument: 'self'
+"GET /api/v1/alldistrict HTTP/1.1" 500 90147
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -294,227 +174,29 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 17, in login
-    login_details = MobileModel.objects.custom_query(emis_username)
-AttributeError: type object 'MobileModel' has no attribute 'objects'
-"POST /hello/ HTTP/1.1" 500 61817
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 17, in login
-    login_details = MobileModel.objects.custom_query(emis_username)
-AttributeError: type object 'MobileModel' has no attribute 'objects'
-"POST /hello/ HTTP/1.1" 500 61817
-Internal Server Error: /hello/
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict.get_districts()
+TypeError: get_districts() missing 1 required positional argument: 'self'
+"GET /api/v1/alldistrict HTTP/1.1" 500 90147
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 17, in login
-    login_details = MobileModel.login(emis_username)
-TypeError: login() takes 1 positional argument but 2 were given
-"POST /hello/ HTTP/1.1" 500 61677
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/MySQLdb/cursors.py", line 201, in execute
-    query = query % args
-TypeError: not all arguments converted during bytes formatting
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "/py/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
-    return self.cursor.execute(query, args)
-  File "/py/lib/python3.9/site-packages/MySQLdb/cursors.py", line 203, in execute
-    raise ProgrammingError(str(m))
-MySQLdb._exceptions.ProgrammingError: not all arguments converted during bytes formatting
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 17, in login
-    login_details = MobileModel.login(emis_username)
-  File "/app/api/models.py", line 13, in login
-    cursor.execute(sql_query, [emis_username])
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 98, in execute
-    return super().execute(sql, params)
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 66, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "/py/lib/python3.9/site-packages/django/db/utils.py", line 90, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "/py/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
-    return self.cursor.execute(query, args)
-  File "/py/lib/python3.9/site-packages/MySQLdb/cursors.py", line 203, in execute
-    raise ProgrammingError(str(m))
-django.db.utils.ProgrammingError: not all arguments converted during bytes formatting
-"POST /hello/ HTTP/1.1" 500 121435
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/MySQLdb/cursors.py", line 201, in execute
-    query = query % args
-TypeError: not all arguments converted during bytes formatting
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "/py/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
-    return self.cursor.execute(query, args)
-  File "/py/lib/python3.9/site-packages/MySQLdb/cursors.py", line 203, in execute
-    raise ProgrammingError(str(m))
-MySQLdb._exceptions.ProgrammingError: not all arguments converted during bytes formatting
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 17, in login
-    login_details = MobileModel.login(emis_username)
-  File "/app/api/models.py", line 13, in login
-    cursor.execute(sql_query, [emis_username])
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 98, in execute
-    return super().execute(sql, params)
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 66, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "/py/lib/python3.9/site-packages/django/db/utils.py", line 90, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "/py/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "/py/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
-    return self.cursor.execute(query, args)
-  File "/py/lib/python3.9/site-packages/MySQLdb/cursors.py", line 203, in execute
-    raise ProgrammingError(str(m))
-django.db.utils.ProgrammingError: not all arguments converted during bytes formatting
-"POST /hello/ HTTP/1.1" 500 121448
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 20, in login
-    encoded_token = jwt.encode(login_details, 'ingDLMRuGe9UKHRNjs7cYckS2yul4lc3', algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/jwt/api_jwt.py", line 49, in encode
-    raise TypeError('Expecting a mapping object, as JWT only supports '
-TypeError: Expecting a mapping object, as JWT only supports JSON objects as payloads.
-"POST /hello/ HTTP/1.1" 500 69007
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 27, in login
-    encoded_token = jwt.encode(login_details, 'ingDLMRuGe9UKHRNjs7cYckS2yul4lc3', algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/jwt/api_jwt.py", line 58, in encode
-    json_payload = json.dumps(
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type datetime is not JSON serializable
-"POST /hello/ HTTP/1.1" 500 91530
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 27, in login
-    encoded_token = jwt.encode(login_details, 'ingDLMRuGe9UKHRNjs7cYckS2yul4lc3', algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/jwt/api_jwt.py", line 58, in encode
-    json_payload = json.dumps(
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type datetime is not JSON serializable
-"POST /hello/ HTTP/1.1" 500 91534
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 21, in login
-    encoded_token = jwt.encode(login_details, 'your_secret_key', algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/jwt/api_jwt.py", line 58, in encode
-    json_payload = json.dumps(
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type datetime is not JSON serializable
-"POST /hello/ HTTP/1.1" 500 91314
-Internal Server Error: /hello/
-"POST /hello/ HTTP/1.1" 500 41
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/app/api/views.py", line 22, in login
-    encoded_token = jwt.encode(login_details, 'your_secret_key', algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/jwt/api_jwt.py", line 58, in encode
-    json_payload = json.dumps(
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type datetime is not JSON serializable
+  File "/app/tnemis/models.py", line 13, in get_districts
+    return self.objects.using(using).all()
+  File "/py/lib/python3.9/site-packages/django/db/models/manager.py", line 179, in __get__
+    raise AttributeError("Manager isn't accessible via %s instances" % cls.__name__)
+AttributeError: Manager isn't accessible via SchoolDistrict instances
 
 During handling of the above exception, another exception occurred:
 
@@ -525,37 +207,33 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 29, in login
-    return JsonResponse({'error': e}, status=500)
-  File "/py/lib/python3.9/site-packages/django/http/response.py", line 605, in __init__
-    data = json.dumps(data, cls=encoder, **json_dumps_params)
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/py/lib/python3.9/site-packages/django/core/serializers/json.py", line 105, in default
-    return super().default(o)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type TypeError is not JSON serializable
-"POST /hello/ HTTP/1.1" 500 123605
-Internal Server Error: /hello/
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict().get_districts()
+  File "/app/tnemis/models.py", line 16, in get_districts
+    return self.objects.none()
+  File "/py/lib/python3.9/site-packages/django/db/models/manager.py", line 179, in __get__
+    raise AttributeError("Manager isn't accessible via %s instances" % cls.__name__)
+AttributeError: Manager isn't accessible via SchoolDistrict instances
+"GET /api/v1/alldistrict HTTP/1.1" 500 104790
+Internal Server Error: /api/v1/alldistrict
 Traceback (most recent call last):
-  File "/app/api/views.py", line 22, in login
-    encoded_token = jwt.encode(login_details, 'ingDLMRuGe9UKHRNjs7cYckS2yul4lc3', algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/jwt/api_jwt.py", line 58, in encode
-    json_payload = json.dumps(
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type datetime is not JSON serializable
+  File "/app/tnemis/models.py", line 13, in get_districts
+    return self.objects.using(using).all()
+  File "/py/lib/python3.9/site-packages/django/db/models/manager.py", line 179, in __get__
+    raise AttributeError("Manager isn't accessible via %s instances" % cls.__name__)
+AttributeError: Manager isn't accessible via SchoolDistrict instances
 
 During handling of the above exception, another exception occurred:
 
@@ -566,256 +244,7 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 29, in login
-    return JsonResponse({'error': e}, status=500)
-  File "/py/lib/python3.9/site-packages/django/http/response.py", line 605, in __init__
-    data = json.dumps(data, cls=encoder, **json_dumps_params)
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/py/lib/python3.9/site-packages/django/core/serializers/json.py", line 105, in default
-    return super().default(o)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type TypeError is not JSON serializable
-"POST /hello/ HTTP/1.1" 500 123673
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/app/api/views.py", line 22, in login
-    encoded_token = jwt.encode(login_details, 'ingDLMRuGe9UKHRNjs7cYckS2yul4lc3', algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/jwt/api_jwt.py", line 58, in encode
-    json_payload = json.dumps(
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type datetime is not JSON serializable
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 29, in login
-    return JsonResponse({'error': e}, status=500)
-  File "/py/lib/python3.9/site-packages/django/http/response.py", line 605, in __init__
-    data = json.dumps(data, cls=encoder, **json_dumps_params)
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/py/lib/python3.9/site-packages/django/core/serializers/json.py", line 105, in default
-    return super().default(o)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type TypeError is not JSON serializable
-"POST /hello/ HTTP/1.1" 500 123673
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 31, in login
-    return JsonResponse({'token': token})
-  File "/py/lib/python3.9/site-packages/django/http/response.py", line 605, in __init__
-    data = json.dumps(data, cls=encoder, **json_dumps_params)
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/py/lib/python3.9/site-packages/django/core/serializers/json.py", line 105, in default
-    return super().default(o)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type bytes is not JSON serializable
-"POST /hello/ HTTP/1.1" 500 90091
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 31, in login
-    return JsonResponse({'token': token})
-  File "/py/lib/python3.9/site-packages/django/http/response.py", line 605, in __init__
-    data = json.dumps(data, cls=encoder, **json_dumps_params)
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/py/lib/python3.9/site-packages/django/core/serializers/json.py", line 105, in default
-    return super().default(o)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type bytes is not JSON serializable
-"POST /hello/ HTTP/1.1" 500 90091
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 34, in login
-    return JsonResponse({'token': token})
-  File "/py/lib/python3.9/site-packages/django/http/response.py", line 605, in __init__
-    data = json.dumps(data, cls=encoder, **json_dumps_params)
-  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/local/lib/python3.9/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/py/lib/python3.9/site-packages/django/core/serializers/json.py", line 105, in default
-    return super().default(o)
-  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type bytes is not JSON serializable
-"POST /hello/ HTTP/1.1" 500 90125
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 27, in login
-    print("Secret Key:", settings.JWT_SECRET_KEY)
-  File "/py/lib/python3.9/site-packages/django/conf/__init__.py", line 83, in __getattr__
-    val = getattr(self._wrapped, name)
-AttributeError: 'Settings' object has no attribute 'JWT_SECRET_KEY'
-"POST /hello/ HTTP/1.1" 500 67336
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 27, in login
-    print("Secret Key:", settings.JWT_SECRET_KEY)
-  File "/py/lib/python3.9/site-packages/django/conf/__init__.py", line 83, in __getattr__
-    val = getattr(self._wrapped, name)
-AttributeError: 'Settings' object has no attribute 'JWT_SECRET_KEY'
-"POST /hello/ HTTP/1.1" 500 67336
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 27, in login
-    print("Secret Key:", settings.JWT_SECRET_KEY)
-  File "/py/lib/python3.9/site-packages/django/conf/__init__.py", line 83, in __getattr__
-    val = getattr(self._wrapped, name)
-AttributeError: 'Settings' object has no attribute 'JWT_SECRET_KEY'
-"POST /hello/ HTTP/1.1" 500 67300
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 29, in login
-    jwt_secret_key = settings.JWT_SECRET_KEY
-  File "/py/lib/python3.9/site-packages/django/conf/__init__.py", line 83, in __getattr__
-    val = getattr(self._wrapped, name)
-AttributeError: 'Settings' object has no attribute 'JWT_SECRET_KEY'
-"POST /hello/ HTTP/1.1" 500 67317
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 31, in login
-    token = jwt.encode(payload, settings.JWT_SECRET_KEY, algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/django/conf/__init__.py", line 83, in __getattr__
-    val = getattr(self._wrapped, name)
-AttributeError: 'Settings' object has no attribute 'JWT_SECRET_KEY'
-"POST /hello/ HTTP/1.1" 500 67424
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 32, in login
-    token = jwt.encode(payload, settings.JWT_SECRET_KEY, algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/django/conf/__init__.py", line 83, in __getattr__
-    val = getattr(self._wrapped, name)
-AttributeError: 'Settings' object has no attribute 'JWT_SECRET_KEY'
-"POST /hello/ HTTP/1.1" 500 67648
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 32, in login
-    token = jwt.encode(payload, settings.jwt_secret_key, algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/django/conf/__init__.py", line 83, in __getattr__
-    val = getattr(self._wrapped, name)
-AttributeError: 'Settings' object has no attribute 'jwt_secret_key'
-"POST /hello/ HTTP/1.1" 500 67596
-Internal Server Error: /hello/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 32, in login
-    token = jwt.encode(payload, settings.jwt_secret_key, algorithm='HS256')
-  File "/py/lib/python3.9/site-packages/django/conf/__init__.py", line 83, in __getattr__
-    val = getattr(self._wrapped, name)
-AttributeError: 'Settings' object has no attribute 'jwt_secret_key'
-"POST /hello/ HTTP/1.1" 500 67596
-Internal Server Error: /api/token/
-Traceback (most recent call last):
-  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
     return self.dispatch(request, *args, **kwargs)
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
     response = self.handle_exception(exc)
@@ -825,35 +254,17 @@ Traceback (most recent call last):
     raise exc
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/views.py", line 27, in post
-    serializer.is_valid(raise_exception=True)
-  File "/py/lib/python3.9/site-packages/rest_framework/serializers.py", line 220, in is_valid
-    self._validated_data = self.run_validation(self.initial_data)
-  File "/py/lib/python3.9/site-packages/rest_framework/serializers.py", line 422, in run_validation
-    value = self.validate(value)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/serializers.py", line 72, in validate
-    data['refresh'] = str(refresh)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 81, in __str__
-    return self.get_token_backend().encode(self.payload)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 173, in get_token_backend
-    self._token_backend = import_string(
-  File "/py/lib/python3.9/site-packages/django/utils/module_loading.py", line 17, in import_string
-    module = import_module(module_path)
-  File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/state.py", line 1, in <module>
-    from .backends import TokenBackend
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/backends.py", line 3, in <module>
-    from jwt import InvalidAlgorithmError, InvalidTokenError, PyJWKClient, algorithms
-ImportError: cannot import name 'PyJWKClient' from 'jwt' (/py/lib/python3.9/site-packages/jwt/__init__.py)
-"POST /api/token/ HTTP/1.1" 500 154321
-Internal Server Error: /api/token/
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/app/tnemis/views.py", line 19, in district_list
+    schooldist = SchoolDistrict().get_districts()
+  File "/app/tnemis/models.py", line 16, in get_districts
+    return self.objects.none()
+  File "/py/lib/python3.9/site-packages/django/db/models/manager.py", line 179, in __get__
+    raise AttributeError("Manager isn't accessible via %s instances" % cls.__name__)
+AttributeError: Manager isn't accessible via SchoolDistrict instances
+"GET /api/v1/alldistrict HTTP/1.1" 500 104790
+Internal Server Error: /api/v1/Tchrdet
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -861,7 +272,7 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
     return self.dispatch(request, *args, **kwargs)
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
     response = self.handle_exception(exc)
@@ -871,35 +282,9 @@ Traceback (most recent call last):
     raise exc
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/views.py", line 27, in post
-    serializer.is_valid(raise_exception=True)
-  File "/py/lib/python3.9/site-packages/rest_framework/serializers.py", line 220, in is_valid
-    self._validated_data = self.run_validation(self.initial_data)
-  File "/py/lib/python3.9/site-packages/rest_framework/serializers.py", line 422, in run_validation
-    value = self.validate(value)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/serializers.py", line 72, in validate
-    data['refresh'] = str(refresh)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 81, in __str__
-    return self.get_token_backend().encode(self.payload)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 173, in get_token_backend
-    self._token_backend = import_string(
-  File "/py/lib/python3.9/site-packages/django/utils/module_loading.py", line 17, in import_string
-    module = import_module(module_path)
-  File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/state.py", line 1, in <module>
-    from .backends import TokenBackend
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/backends.py", line 3, in <module>
-    from jwt import InvalidAlgorithmError, InvalidTokenError, PyJWKClient, algorithms
-ImportError: cannot import name 'PyJWKClient' from 'jwt' (/py/lib/python3.9/site-packages/jwt/__init__.py)
-"POST /api/token/ HTTP/1.1" 500 154321
-Internal Server Error: /api/token/
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -907,7 +292,7 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/py/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
     return self.dispatch(request, *args, **kwargs)
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
     response = self.handle_exception(exc)
@@ -917,35 +302,9 @@ Traceback (most recent call last):
     raise exc
   File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/views.py", line 27, in post
-    serializer.is_valid(raise_exception=True)
-  File "/py/lib/python3.9/site-packages/rest_framework/serializers.py", line 220, in is_valid
-    self._validated_data = self.run_validation(self.initial_data)
-  File "/py/lib/python3.9/site-packages/rest_framework/serializers.py", line 422, in run_validation
-    value = self.validate(value)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/serializers.py", line 72, in validate
-    data['refresh'] = str(refresh)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 81, in __str__
-    return self.get_token_backend().encode(self.payload)
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/tokens.py", line 173, in get_token_backend
-    self._token_backend = import_string(
-  File "/py/lib/python3.9/site-packages/django/utils/module_loading.py", line 17, in import_string
-    module = import_module(module_path)
-  File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/state.py", line 1, in <module>
-    from .backends import TokenBackend
-  File "/py/lib/python3.9/site-packages/rest_framework_simplejwt/backends.py", line 3, in <module>
-    from jwt import InvalidAlgorithmError, InvalidTokenError, PyJWKClient, algorithms
-ImportError: cannot import name 'PyJWKClient' from 'jwt' (/py/lib/python3.9/site-packages/jwt/__init__.py)
-"POST /api/token/ HTTP/1.1" 500 154321
-Internal Server Error: /hello/
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
 Traceback (most recent call last):
   File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -953,7 +312,739 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "/app/api/views.py", line 15, in login
-    emis_username = records.get('emis_username')
-AttributeError: 'NoneType' object has no attribute 'get'
-"POST /hello/ HTTP/1.1" 500 61251
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=10011301 HTTP/1.1" 500 81829
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=1 HTTP/1.1" 500 81745
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=1 HTTP/1.1" 500 81745
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=1 HTTP/1.1" 500 81745
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=1 HTTP/1.1" 500 81745
+Internal Server Error: /api/v1/Tchrdet
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: Tchrdet() takes 1 positional argument but 2 were given
+"GET /api/v1/Tchrdet?TchrId=1 HTTP/1.1" 500 81745
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 59
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 59
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 92
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 115
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 115
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 115
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 104
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 111
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 104
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 104
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 109
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 279
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 81
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 109
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 110
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 110
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 110
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 108
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 53
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 54
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 72775
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 124
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 53
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 55
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 128
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 127
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 136
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 59
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 59
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 59
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 109
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 59
+Internal Server Error: /api/v1/login
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
+"POST /api/v1/login HTTP/1.1" 500 72598
+Internal Server Error: /api/v1/login
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
+"POST /api/v1/login HTTP/1.1" 500 72598
+An error occurred: die
+An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+An error occurred: die
+An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+An error occurred: die
+An error occurred: die
+An error occurred: die
+An error occurred: die
+An error occurred: die
+An error occurred: die
+An error occurred: die
+An error occurred: (1290, 'The MySQL server is running with the --read-only option so it cannot execute this statement')
+Internal Server Error: /api/v1/CnslMainPage
+"POST /api/v1/CnslMainPage HTTP/1.1" 500 152
