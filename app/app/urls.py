@@ -16,5 +16,5 @@ urlpatterns = [
     path('', include('api.urls')),
     
     # Including API URLs from 'api.urls'
-    path('', include('tnemis.urls')),
+    path('api/emis/', include('emis.urls')),
 ]

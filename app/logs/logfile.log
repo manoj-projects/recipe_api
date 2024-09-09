@@ -1048,3 +1048,24 @@ An error occurred: die
 An error occurred: (1290, 'The MySQL server is running with the --read-only option so it cannot execute this statement')
 Internal Server Error: /api/v1/CnslMainPage
 "POST /api/v1/CnslMainPage HTTP/1.1" 500 152
+An error occurred: Expecting value: line 1 column 1 (char 0)
+Internal Server Error: /api/emis/ClasslistDistWise
+Traceback (most recent call last):
+  File "/py/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/py/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/py/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/py/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: ClasslistDistWise() takes 1 positional argument but 2 were given
+"GET /api/emis/ClasslistDistWise HTTP/1.1" 500 82436
